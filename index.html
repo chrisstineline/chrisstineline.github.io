@@ -6,9 +6,15 @@
     <style>
         body {
             margin: 0;
-            display: flex;
-            flex-wrap: wrap;
-            height: 100vh;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header-box {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
         }
 
         .grid-container {
@@ -17,8 +23,8 @@
             overflow: auto;
             border: 1px solid #ccc;
             margin: 5px;
-            height: 50vh; /* Set a default height, adjust as needed */
-            width: 50vw; /* Set a default width, adjust as needed */
+            height: 50vh;
+            width: 50vw;
         }
 
         .grid-content {
@@ -36,6 +42,12 @@
     </style>
 </head>
 <body>
+
+    <div class="header-box">
+        <p>NORMALER OG IKKE</p>
+        <p>CHRISTINE</p>
+        <p>projekt</p>
+    </div>
 
     <div class="grid-container" id="grid1">
         <!-- The content will be loaded dynamically using JavaScript -->
