@@ -38,44 +38,51 @@
 </head>
 <body>
 
-    <!--<div class="grid-container">
-        <div class="grid-content" id="grid1">
-            <div class="grid-item">1</div>
-            <div class="grid-item">2</div>
-            <div class="grid-item">3</div>
-            <div class="grid-item">4</div>
-            <div class="grid-item">5</div>
-            <div class="grid-item">6</div>
-            <div class="grid-item">7</div>
-            <div class="grid-item">8</div>
-            <div class="grid-item">9</div>
-        </div>
-    </div>-->
-
-    <div class="grid-container">
-        <div class="grid-content" id="grid2">
-            <!-- Similar content for the second grid -->
-        </div>
+    <div class="grid-container" id="grid1">
+        <!-- The content will be loaded dynamically using JavaScript -->
     </div>
 
-    <div class="grid-container">
-        <div class="grid-content" id="grid3">
-            <!-- Similar content for the third grid -->
-        </div>
+    <div class="grid-container" id="grid2">
+        <!-- Similar content for the second grid -->
     </div>
 
-    <div class="grid-container">
-        <div class="grid-content" id="grid4">
-            <!-- Similar content for the fourth grid -->
-        </div>
+    <div class="grid-container" id="grid3">
+        <!-- Similar content for the third grid -->
+    </div>
+
+    <div class="grid-container" id="grid4">
+        <!-- Similar content for the fourth grid -->
     </div>
 
     <script>
-        // Enable scrolling with the mouse wheel for each grid
-        document.getElementById('grid1').addEventListener('wheel', function (e) {
-            this.scrollLeft += e.deltaY;
-        });
+        function loadTextIntoGrid(gridId, filePath) {
+            var grid = document.getElementById(gridId);
 
+            // Fetch the text file
+            fetch(filePath)
+                .then(response => response.text())
+                .then(data => {
+                    // Split the text into lines
+                    var lines = data.split('\n');
+
+                    // Clear existing content
+                    grid.innerHTML = '';
+
+                    // Create grid items for each line
+                    lines.forEach(line => {
+                        var gridItem = document.createElement('div');
+                        gridItem.className = 'grid-item';
+                        gridItem.textContent = line;
+                        grid.appendChild(gridItem);
+                    });
+                })
+                .catch(error => console.error('Error loading text file:', error));
+        }
+
+        // Load a text file into the first grid
+        loadTextIntoGrid('grid1', 'The Strange Case of Dr. Jekyll and Mr. Hyde.txt');
+
+        // Enable scrolling with the mouse wheel for each grid
         document.getElementById('grid2').addEventListener('wheel', function (e) {
             this.scrollLeft += e.deltaY;
         });
