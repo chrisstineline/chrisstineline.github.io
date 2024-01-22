@@ -11,6 +11,8 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 10px;
+            background-color: #f5f5dc; /* Light Beige Background */
+            color: #333;
         }
 
         .header-box {
@@ -38,10 +40,10 @@
         }
 
         .grid-item {
-            background-color: #f0f0f0;
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
+          background-color: #fafad2; /* Light Goldenrod Yellow Grid Item Background */
+          border: 1px solid #ddd;
+          padding: 10px;
+          text-align: center;
         }
     </style>
 </head>
@@ -95,7 +97,7 @@
         }
 
         // Load a text file into the first grid
-        loadTextIntoGrid('grid1', 'test.txt');
+        loadTextIntoGrid('grid1', 'The Strange Case of Dr. Jekyll and Mr. Hyde.txt');
 
         // Enable scrolling with the mouse wheel for each grid
         document.getElementById('grid2').addEventListener('wheel', function (e) {
