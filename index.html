@@ -17,13 +17,12 @@
             overflow: auto;
             border: 1px solid #ccc;
             margin: 5px;
-            height: 200px; /* Set your desired fixed height */
-            width: 200px; /* Set your desired fixed width */
+            height: 50vh; /* Set a default height, adjust as needed */
+            width: 50vw; /* Set a default width, adjust as needed */
         }
 
         .grid-content {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
             gap: 5px;
             padding: 10px;
         }
@@ -93,6 +92,18 @@
 
         document.getElementById('grid4').addEventListener('wheel', function (e) {
             this.scrollLeft += e.deltaY;
+        });
+
+        // Adjust grid sizes based on window resize
+        window.addEventListener('resize', function () {
+            // Update the width and height based on the window size
+            var windowWidth = window.innerWidth;
+            var windowHeight = window.innerHeight;
+
+            document.querySelectorAll('.grid-container').forEach(function (grid) {
+                grid.style.width = (windowWidth * 0.5) + 'px';
+                grid.style.height = (windowHeight * 0.5) + 'px';
+            });
         });
     </script>
 </body>
