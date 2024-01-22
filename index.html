@@ -8,6 +8,9 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
         }
 
         .header-box {
@@ -15,22 +18,23 @@
             color: #fff;
             padding: 20px;
             text-align: center;
+            grid-column: span 2; /* Span two columns */
         }
 
         .grid-container {
-            flex: 1;
             box-sizing: border-box;
             overflow: auto;
             border: 1px solid #ccc;
             margin: 5px;
             height: 50vh;
-            width: 50vw;
+            width: 100%; /* Full width for two columns */
         }
 
         .grid-content {
             display: grid;
             gap: 5px;
             padding: 10px;
+            grid-template-columns: repeat(2, 1fr); /* Two fixed columns */
         }
 
         .grid-item {
@@ -91,7 +95,7 @@
         }
 
         // Load a text file into the first grid
-        loadTextIntoGrid('grid1' 'grid2', 'The Strange Case of Dr. Jekyll and Mr. Hyde.txt', 'test.txt');
+        loadTextIntoGrid('grid1', 'test.txt');
 
         // Enable scrolling with the mouse wheel for each grid
         document.getElementById('grid2').addEventListener('wheel', function (e) {
@@ -113,7 +117,7 @@
             var windowHeight = window.innerHeight;
 
             document.querySelectorAll('.grid-container').forEach(function (grid) {
-                grid.style.width = (windowWidth * 0.5) + 'px';
+                grid.style.width = '100%';
                 grid.style.height = (windowHeight * 0.5) + 'px';
             });
         });
