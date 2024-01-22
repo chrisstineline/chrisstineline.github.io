@@ -72,17 +72,7 @@
     </div>
 
     <script>
-    function incrementViewCount() {
-        var viewCounterElement = document.getElementById('viewCounter');
-        var viewCount = parseInt(localStorage.getItem('viewCount')) || 0;
-
-        // Increment the view count
-        viewCount++;
-        localStorage.setItem('viewCount', viewCount);
-
-        // Update the view counter element
-        viewCounterElement.textContent = 'Total Views: ' + viewCount;
-    }
+        
         function loadTextIntoGrid(gridId, filePath) {
             var grid = document.getElementById(gridId);
 
